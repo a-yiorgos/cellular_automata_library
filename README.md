@@ -11,13 +11,13 @@ Clone the current repository and then,
 > python3 setup.py install
 ```
 
-That's it you already you have install it.
+That's it; you have already installed it.
 
 ## What can I do?
 
-Let's start with a simple and famous example - cellular automata,
+Let's start with a simple and famous example of cellular automata,
 the [game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
-  Show go to favorite Python IDE or directly to Python repl and copy the follow piece of code,
+  So go to your favorite Python IDE or directly to the Python repl and copy the follow piece of code,
 
 ```python
 from cellular_automata.cellular_automata import cellular_automata as ca
@@ -25,52 +25,52 @@ game_of_life = ca(width=100,height=100,generations=100)
 game_of_life.game_of_life()
 ```
 
-At the end , a GIF will be pop up to our desktop , like this,
+In the end, a GIF will pop up to your desktop, like this one:
 
  ![Scheme](resources/game_of_life.gif)
 
 
 ## Preview all choices
 
-First of all until now the library support only binary cellular automata,
- with the below formatting
+First of all for now the library supports only binary cellular automata,
+ with the following format options:
  * [Moore neighbohood](https://en.wikipedia.org/wiki/Moore_neighborhood),
- In this case the cell has 8 neighbors and the formatting of rule is,
- Bxxx/Sxxx. The x can be numbers fro 0 to 8.
+ In this case the cell has 8 neighbors and the rule format is,
+ Bxxx/Sxxx. The x can be numbers from 0 to 8.
  * [Von Neumann neighborhood
 ](https://en.wikipedia.org/wiki/Von_Neumann_neighborhood),
- In this case the cell has 4 neighbors and the formatting of rule is,
- Bxxx/SxxxV. The x can be numbers fro 0 to 4.
+ In this case the cell has 4 neighbors and the rule format is,
+ Bxxx/SxxxV. The x can be numbers from 0 to 4.
  * [Hexagonal neighborhood](https://en.wikibooks.org/wiki/Cellular_Automata/Neighborhood)
- In this case the cell has 6 neighbors and the formatting of rule is,
-  Bxxx/SxxxH. The x can be numbers fro 0 to 6.
+ In this case the cell has 6 neighbors and the rule format is,
+  Bxxx/SxxxH. The x can be numbers from 0 to 6.
 
 
 ```python
 ca(width=10,height=10, input_array='', generations=10, save_image=False,
                  save_data=False, filename='')
 ```
-These are the pre-define parameters of our library
+These are the pre-defined parameters in the library:
 
-* width: is take an int number and define the width of our board
-* height: is take an int number and define the height of our board
-* input_array: is take a numpy array,with only 0's and 1's. If we don't
+* width: takes an int number and defines the width of the board
+* height: takes an int number and defines the height of the board
+* input_array: takes a numpy array with only 0s and 1s. If we don't
 define this parameter the library will create a random numpy array with zeros and ones
-* generations: is take a int number and define how many generations we will have
-* save_image:If is True library save the output gif with the name which define the parameter filename
-* save_file: If is true create a file with the name of parameter filename and it contains a list of numpy arrays
-* filename: This name is used to save the gif file and the list of numpy array,which represnt the generations
+* generations: takes a int number and defines how many generations we will have
+* save_image:If set to True, the library saves the output gif with the name which is define via the parameter filename
+* save_file: If set to True, a file with the name passed to the parameter filename is created and it contains a list of numpy arrays
+* filename: This is the name used to save the gif file and the list of the numpy array which represnt the generations
 
-
-A list of cellular rules which already are implemented and how we call them,
-
-First define the above parameters
+There is a list of cellular automata rules which are already implemented. To
+use them first define the above parameters:
 
 ```python
 from cellular_automata.cellular_automata import cellular_automata as ca
 sample = ca(width=10,height=10, input_array='', generations=10, save_image=False,
                           save_data=False, filename='')
 ```
+
+Then, depending the automaton you want to use:
 
 1. Game of life
 ```python
@@ -117,17 +117,17 @@ sample.morley()
 sample.anneal()
 ```
 
-But someone want to implement his rule or the rule we don't have implement yet.So? No problem.
+But someone may want to implement their rules or a rule set we don't have implement yet. So? No problem.
 
 ```python
 sample.specify_rule_2d(<rule>)
 ```
-The only restriction is that the rule must be in this formation, Bxxx/Sxxx. Where x is number from 0 to 8.
+The only restriction is that the rule must be in this formation, Bxxx/Sxxx.  Where x is a number from 0 to 8.
 For example if you to specify the Anneal rule, you can just do this,
 ```python
 sample.specify_rule_2d('B4678/S35678')
 ```
-There rest will be done from our library.
+There rest will be done by the library.
 
 
 
